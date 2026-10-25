@@ -42,6 +42,24 @@ The easiest way to develop is the included VS Code devcontainer:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
+### Spec-driven development
+
+Features are specified with [OpenSpec](https://openspec.dev/) before they are implemented.
+Current specs live in [`openspec/specs/`](openspec/specs/), proposed changes in [`openspec/changes/`](openspec/changes/).
+
+The workflows are tool-agnostic agent skills in [`.agents/skills/`](.agents/skills/), usable by any coding agent that supports the shared `.agents` skills directory:
+
+1. `openspec-explore` — think through an idea (optional).
+1. `openspec-propose` — create a change with a proposal, spec deltas, design and tasks.
+1. `openspec-apply-change` — implement the tasks.
+1. `openspec-archive-change` — merge the spec deltas into `openspec/specs/` and archive the change.
+
+`openspec-sync-specs` and `openspec-update-change` cover syncing specs without archiving and revising a change's plan.
+
+The skills need the OpenSpec CLI (`npm install -g @fission-ai/openspec`), which also offers `openspec list`, `openspec show <change>` and `openspec validate <change>`.
+Project context for the workflows is set in [`openspec/config.yaml`](openspec/config.yaml).
+To add tool-specific commands for a particular agent later, run `openspec init --tools <tool>`.
+
 ### Repository layout
 
 File | Purpose
@@ -49,6 +67,8 @@ File | Purpose
 `custom_components/heating_management/` | The integration itself.
 `config/configuration.yaml` | Home Assistant config used by `scripts/develop`.
 `scripts/` | `setup`, `develop` and `lint` helper scripts.
+`openspec/` | OpenSpec specs and change proposals.
+`.agents/skills/` | OpenSpec workflow skills for coding agents.
 `.devcontainer.json` | VS Code devcontainer definition.
 `.github/workflows/` | CI: Ruff lint/format check, hassfest and HACS validation.
 `.github/renovate.json` | Dependency updates via Renovate (`.github/_dependabot.yml` is a disabled Dependabot alternative — keep only one).
