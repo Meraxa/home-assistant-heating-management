@@ -1,0 +1,12 @@
+{
+  "domain": "heating_management",
+  "name": "Heating Management",
+  "codeowners": [
+    "@Meraxa"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Meraxa/home-assistant-heating-management",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Meraxa/home-assistant-heating-management/issues",
+  "version": "0.1.0"
+}
