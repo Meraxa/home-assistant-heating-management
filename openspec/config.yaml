@@ -1,0 +1,39 @@
+schema: spec-driven
+
+# Project context
+# Only constraints an agent cannot infer by reading the code.
+context: |
+  This is a custom Home Assistant integration (domain: heating_management),
+  distributed via HACS and installed under custom_components/.
+  It follows Home Assistant integration conventions: configuration happens via
+  config flows in the UI (no YAML configuration), and blocking I/O must never
+  run in the event loop.
+  The platforms and API client currently in the code are placeholders from
+  ludeeus/integration_blueprint and will be replaced; do not treat them as
+  existing requirements.
+  Code must pass `scripts/lint` (Ruff with all rules enabled) and the hassfest
+  and HACS validation workflows.
+  main is only changed through pull requests; work happens on feature/ or fix/
+  branches.
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
